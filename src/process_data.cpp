@@ -47,8 +47,7 @@ Mesh read_mesh(std::vector<std::string> lines)
 
     //Read all the nodes and number of nodes/elements
     while (lines[i] != "\n")
-    {   
-        std::cout << lines[i] << std::endl;
+    {
         if (i == 0)
         {
             std::vector<std::string> num_nodes_str = split(lines[i], ' ');
@@ -56,7 +55,7 @@ Mesh read_mesh(std::vector<std::string> lines)
             std::vector<std::string> num_elements_str = split(lines[i + 1], ' ');
             num_elements = std::stoi(num_elements_str[1]);
         }
-        else if (i < num_nodes + 1)
+        else if (i < num_nodes + 2)
         {
             std::vector<std::string> node_str = split(lines[i], ' ');
             int id = std::stoi(node_str[0]);
@@ -64,14 +63,16 @@ Mesh read_mesh(std::vector<std::string> lines)
             Node node(id, x);
             nodes.push_back(node);
         }
-        else{
+        else
+        {
             i++;
+            // i++;
             break;
         }
 
         i++;
     }
-    std::cout << "Read nodes." << std::endl;
+
     while (lines[i] != "\n")
     {
         std::vector<std::string> element_str = split(lines[i], ' ');
@@ -79,12 +80,12 @@ Mesh read_mesh(std::vector<std::string> lines)
         std::vector<int> nodes_id;
         nodes_id.push_back(std::stoi(element_str[1]));
         nodes_id.push_back(std::stoi(element_str[2]));
-        
+
         Element element(id, nodes_id);
         elements.push_back(element);
         i++;
-        if (i == lines.size()){
-            std::cout << "End of file" << std::endl;
+        if (i == lines.size())
+        {
             break;
         }
     }
