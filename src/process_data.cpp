@@ -45,5 +45,5 @@ Mesh read_mesh(std::vector<std::string> lines)
         }
         i++;
     }
-    i++;
+    return mesh;
 }
