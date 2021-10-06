@@ -70,3 +70,11 @@ std::ostream &operator<<(std::ostream &os, const MaterialParams &material)
     os << "Material Parameters:\n    E: " << material.E << "\n    Height: " << material.height << "\n    Width: " << material.width << std::endl;
     return os;
 }
+
+// Mesh Struct:
+
+std::ostream& operator<<(std::ostream& os, const Mesh& mesh)
+{
+    os << "Mesh:\n    Nodes: " << mesh.nodes.size() << "\n    Elements: " << mesh.elements.size() << std::endl;
+    return os;
+}

@@ -36,7 +36,6 @@ public:
 };
 std::ostream &operator<<(std::ostream &, const Constraints &);
 
-
 class MaterialParams
 {
 public:
@@ -47,13 +46,12 @@ public:
 };
 std::ostream &operator<<(std::ostream &, const MaterialParams &);
 
-
 typedef struct Mesh
 {
     std::vector<Node> nodes;
     std::vector<Element> elements;
 } Mesh;
 
-
+std::ostream &operator<<(std::ostream &, const Mesh &);
 
 #endif
