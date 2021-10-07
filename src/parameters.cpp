@@ -1,5 +1,10 @@
 #include "../include/parameters.hpp"
 
+Node::Node(){
+    this->id = 0;
+    this->x = 0;
+}
+
 Node::Node(int id, double x)
 {
     this->id = id;
@@ -15,6 +20,11 @@ std::ostream &operator<<(std::ostream &os, const Node &node)
 /*
 Element Class:
 */
+
+Element::Element(){
+    this->id = 0;
+    this->connectivity = std::vector<int>();
+}
 
 Element::Element(int id, std::vector<int> connect)
 {
@@ -33,6 +43,11 @@ std::ostream &operator<<(std::ostream &os, const Element &element)
     return os;
 }
 // Constraint Class:
+
+Constraints::Constraints(){
+    this->num = 0;
+    this->vals = std::vector<double>();
+}
 
 Constraints::Constraints(int num, std::vector<double> vals)
 {
@@ -57,6 +72,12 @@ std::ostream &operator<<(std::ostream &os, const Constraints &constraints)
 }
 
 // Material Parameters Class:
+
+MaterialParams::MaterialParams(){
+    this->E = 0;
+    this->height = 0;
+    this->width = 0;
+}
 
 MaterialParams::MaterialParams(double E, double height, double witdth)
 {

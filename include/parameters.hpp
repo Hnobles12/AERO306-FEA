@@ -9,7 +9,7 @@ class Node
 public:
     int id;
     float x;
-
+    Node();
     Node(int, double);
 };
 std::ostream &operator<<(std::ostream &, const Node &);
@@ -21,6 +21,7 @@ class Element
 public:
     int id;
     std::vector<int> connectivity;
+    Element();
     Element(int, std::vector<int>);
 };
 std::ostream &operator<<(std::ostream &, const Element &);
@@ -31,6 +32,7 @@ public:
     int num;
     std::vector<double> vals;
 
+    Constraints();
     Constraints(int, std::vector<double>);
     double operator[](int);
 };
@@ -42,6 +44,7 @@ public:
     double E;
     double height;
     double width;
+    MaterialParams();
     MaterialParams(double, double, double);
 };
 std::ostream &operator<<(std::ostream &, const MaterialParams &);

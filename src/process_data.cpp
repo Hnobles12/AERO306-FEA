@@ -46,7 +46,7 @@ Mesh read_mesh(std::vector<std::string> lines)
     int num_elements = 0;
 
     //Read all the nodes and number of nodes/elements
-    while (lines[i] != "\n")
+    while (lines[i].length() != 0)
     {
         if (i == 0)
         {
@@ -63,18 +63,14 @@ Mesh read_mesh(std::vector<std::string> lines)
             Node node(id, x);
             nodes.push_back(node);
         }
-        else
-        {
-            i++;
-            // i++;
-            break;
-        }
 
         i++;
     }
 
-    while (lines[i] != "\n")
+    i++;
+    while (lines[i].length() != 0 and i < lines.size())
     {
+        std::cout << "Here " << i << std::endl;
         std::vector<std::string> element_str = split(lines[i], ' ');
         int id = std::stoi(element_str[0]);
         std::vector<int> nodes_id;
@@ -84,14 +80,32 @@ Mesh read_mesh(std::vector<std::string> lines)
         Element element(id, nodes_id);
         elements.push_back(element);
         i++;
-        if (i == lines.size())
-        {
-            break;
-        }
     }
 
     mesh.nodes = nodes;
     mesh.elements = elements;
 
     return mesh;
+}
+
+MaterialParams readProperties(std::vector<std::string> lines)
+{
+    MaterialParams material_params;
+    int i = 0;
+    int empty_lines = 0;
+    while (empty_lines != 2)
+    {
+        if (lines[i].length() == 0)
+        {
+            empty_lines++;
+        }
+        i++;
+    }
+
+    std::vector<std::string> properties_str = split(lines[i], ' ');
+    material_params.E = std::stod(properties_str[0]);
+    material_params.height = std::stod(properties_str[1]);
+    material_params.width = std::stod(properties_str[2]);
+
+    return material_params;
 }

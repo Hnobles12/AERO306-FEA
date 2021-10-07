@@ -12,5 +12,6 @@ std::vector<std::string> get_lines(std::string fname);
 
 Mesh read_mesh(std::vector<std::string>);
 
+MaterialParams readProperties(std::vector<std::string>);
 
 #endif
