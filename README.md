@@ -2,13 +2,11 @@
 
 ## Overview
 
----
 
 This repo houses code to complete a Finite Element Analysis of a simiple beam to satisfy the requirements for AERO 306. The program is written in modern C++ and makes use of many features of C++11.
 
 ## Installation:
 
----
 
 The program can be installed/compiled using MAKE commands or by writing the compilation commands yourself.
 
@@ -32,7 +30,6 @@ $ cd AERO306-FEA
 $ g++ -o ./bin/FEA.out ./src/*
 ```
 
----
 
 ## Using the Program
 
