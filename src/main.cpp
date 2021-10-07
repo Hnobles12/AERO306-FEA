@@ -91,6 +91,9 @@ int main(int argc, char **argv)
 
     output_fstream.close();
 
+
+    // Outputting Data to stdout:
+
     if (display)
     {
         cout << mesh << endl;
