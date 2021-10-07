@@ -9,7 +9,7 @@ class Node
 public:
     int id;
     float x;
-
+    Node();
     Node(int, double);
 };
 std::ostream &operator<<(std::ostream &, const Node &);
@@ -21,6 +21,7 @@ class Element
 public:
     int id;
     std::vector<int> connectivity;
+    Element();
     Element(int, std::vector<int>);
 };
 std::ostream &operator<<(std::ostream &, const Element &);
@@ -29,9 +30,10 @@ class Constraints
 {
 public:
     int num;
-    std::vector<double> vals;
+    std::vector<int> dofs;
 
-    Constraints(int, std::vector<double>);
+    Constraints();
+    Constraints(int, std::vector<int>);
     double operator[](int);
 };
 std::ostream &operator<<(std::ostream &, const Constraints &);
@@ -42,6 +44,7 @@ public:
     double E;
     double height;
     double width;
+    MaterialParams();
     MaterialParams(double, double, double);
 };
 std::ostream &operator<<(std::ostream &, const MaterialParams &);
@@ -53,5 +56,17 @@ typedef struct Mesh
 } Mesh;
 
 std::ostream &operator<<(std::ostream &, const Mesh &);
+
+typedef struct Load
+{
+    int dof;
+    double value;
+} Load;
+
+std::ostream &operator<<(std::ostream &, const Load &);
+
+typedef std::vector<Load> Loads;
+
+std::ostream &operator<<(std::ostream &, const Loads &);
 
 #endif

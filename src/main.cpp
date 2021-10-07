@@ -5,24 +5,58 @@
 #include <vector>
 using namespace std;
 
-int main()
+int main(int argc, char **argv)
 {
+    cout << "Finite Element Analysis For Simple Beams" << endl;
+
+    bool display = false;
+
+    string output_file = "output.txt";
+
+    if (argc < 4)
+    {
+        cout << "\nUsage: ./main <input_file> <output_file> <display?>" << endl;
+        return 0;
+    }
+    else
+    {
+        string input_file = argv[1];
+        output_file = argv[2];
+        if (argc == 4)
+        {
+            display = true;
+        }
+    }
+
     std::vector<std::string> lines = get_lines("./data/data.txt");
 
     Mesh mesh = read_mesh(lines);
-    std::cout << "Mesh read" << std::endl;
-    std::cout << mesh << std::endl;
+    MaterialParams material_params = readProperties(lines);
+    Constraints constraints = readConstraints(lines);
+    Loads loads = readLoads(lines);
 
-    // std::vector<std::string> lines = get_lines("data.txt");
-    // std::cout << "Number of lines: " << lines.size() << std::endl;
-    // for (int i = 0; i < lines.size(); i++)
-    // {
-    //     std::cout << lines[i] << std::endl;
-    // }
-    // std::vector<std::string> line1 = split(lines[0], ' ');
-    // for (int i = 0; i<line1.size(); i++){
-    //     std::cout << line1[i] << std::endl;
-    // }
+    ofstream output_fstream(output_file);
+
+    if(!output_fstream.is_open())
+    {
+        cout << "\nError: Could not open output file" << endl;
+        return 1;
+    }
+
+    output_fstream << mesh << endl;
+    output_fstream << material_params << endl;
+    output_fstream << constraints << endl;
+    output_fstream << loads << endl;
+
+    output_fstream.close();
+
+    if (display)
+    {
+        cout << mesh << endl;
+        cout << material_params << endl;
+        cout << constraints << endl;
+        cout << loads << endl;
+    }
 
     return 0;
 }
