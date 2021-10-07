@@ -136,3 +136,30 @@ Constraints readConstraints(std::vector<std::string> lines)
     return constraints;
 }
 
+Loads readLoads(std::vector<std::string> lines)
+{
+    Loads loads;
+    int i = 0;
+    int empty_lines = 0;
+
+    while (empty_lines != 4)
+    {
+        if (lines[i].size() == 0)
+        {
+            empty_lines++;
+        }
+        i++;
+    }
+    int num_loads = std::stoi(lines[i]);
+    for (int i = 0; i < num_loads; i++)
+    {
+        Load load;
+        std::vector<std::string> load_str = split(lines[i + 1], ' ');
+        int dof = std::stoi(load_str[0]);
+        double value = std::stod(load_str[1]);
+        load.dof = dof;
+        load.value = value;
+        loads.push_back(load);
+    }
+    return loads;
+}

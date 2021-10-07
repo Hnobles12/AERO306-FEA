@@ -1,6 +1,7 @@
 #include "../include/parameters.hpp"
 
-Node::Node(){
+Node::Node()
+{
     this->id = 0;
     this->x = 0;
 }
@@ -21,7 +22,8 @@ std::ostream &operator<<(std::ostream &os, const Node &node)
 Element Class:
 */
 
-Element::Element(){
+Element::Element()
+{
     this->id = 0;
     this->connectivity = std::vector<int>();
 }
@@ -44,7 +46,8 @@ std::ostream &operator<<(std::ostream &os, const Element &element)
 }
 // Constraint Class:
 
-Constraints::Constraints(){
+Constraints::Constraints()
+{
     this->num = 0;
     this->dofs = std::vector<int>();
 }
@@ -73,7 +76,8 @@ std::ostream &operator<<(std::ostream &os, const Constraints &constraints)
 
 // Material Parameters Class:
 
-MaterialParams::MaterialParams(){
+MaterialParams::MaterialParams()
+{
     this->E = 0;
     this->height = 0;
     this->width = 0;
@@ -94,12 +98,25 @@ std::ostream &operator<<(std::ostream &os, const MaterialParams &material)
 
 // Mesh Struct:
 
-std::ostream& operator<<(std::ostream& os, const Mesh& mesh)
+std::ostream &operator<<(std::ostream &os, const Mesh &mesh)
 {
     os << "Mesh:\n    Nodes: " << mesh.nodes.size() << "\n    Elements: " << mesh.elements.size() << std::endl;
     return os;
 }
 
-std::ostream& operator<<(std::ostream& os, const Loads& loads){
+std::ostream &operator<<(std::ostream &os, const Load &load){
+    os << "\n    Load:\n        DOF: " << load.dof << "\n        Value: " << load.value << std::endl;
+    return os;
+}
 
+std::ostream &operator<<(std::ostream &os, const Loads &loads)
+{
+    os << "Loads:\n    Number: " << loads.size() << "\n    Values: \n    {\n ";
+    for (int i = 0; i < loads.size(); i++)
+    {
+        os << loads[i] << " ";
+    }
+
+    os << "\n    }" << std::endl;
+    return os;
 }

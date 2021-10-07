@@ -1,0 +1,24 @@
+Mesh:
+    Nodes: 4
+    Elements: 3
+
+Material Parameters:
+    E: 1e+07
+    Height: 1.339
+    Width: 0.5
+
+Constraints:
+    Number: 4
+    Values: 1 5 3 4 
+
+Loads:
+    Number: 1
+    Values: 
+    {
+ 
+    Load:
+        DOF: 1
+        Value: 10
+ 
+    }
+

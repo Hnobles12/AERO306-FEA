@@ -63,6 +63,8 @@ typedef struct Load
     double value;
 } Load;
 
+std::ostream &operator<<(std::ostream &, const Load &);
+
 typedef std::vector<Load> Loads;
 
 std::ostream &operator<<(std::ostream &, const Loads &);
