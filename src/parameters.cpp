@@ -14,7 +14,7 @@ Node::Node(int id, double x)
 
 std::ostream &operator<<(std::ostream &os, const Node &node)
 {
-    os << "Node:\n    ID: " << node.id << "\n    x-pos: " << node.x << std::endl;
+    os << "    Node:\n        ID: " << node.id << "\n        x-pos: " << node.x << std::endl;
     return os;
 }
 
@@ -36,7 +36,7 @@ Element::Element(int id, std::vector<int> connect)
 
 std::ostream &operator<<(std::ostream &os, const Element &element)
 {
-    os << "Element:\n    ID: " << element.id << "\n    Connectivity: ";
+    os << "    Element:\n        ID: " << element.id << "\n        Connectivity: ";
     for (int i = 0; i < element.connectivity.size(); i++)
     {
         os << element.connectivity[i] << " ";
@@ -100,7 +100,21 @@ std::ostream &operator<<(std::ostream &os, const MaterialParams &material)
 
 std::ostream &operator<<(std::ostream &os, const Mesh &mesh)
 {
-    os << "Mesh:\n    Nodes: " << mesh.nodes.size() << "\n    Elements: " << mesh.elements.size() << std::endl;
+    os << "Mesh:\n    Nodes: " << mesh.nodes.size() << std::endl;
+    os << "    {\n";
+    for (int i = 0; i < mesh.nodes.size(); i++)
+    {
+        os << mesh.nodes[i];
+    }
+    os << "    }\n";
+    os << "    Elements: " << mesh.elements.size() << std::endl;
+    os << "    {\n";
+    for (int i = 0; i<mesh.elements.size(); i++){
+        os << mesh.elements[i];
+    }
+
+    os << "    }\n";
+
     return os;
 }
 
