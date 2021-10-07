@@ -30,10 +30,10 @@ class Constraints
 {
 public:
     int num;
-    std::vector<double> vals;
+    std::vector<int> dofs;
 
     Constraints();
-    Constraints(int, std::vector<double>);
+    Constraints(int, std::vector<int>);
     double operator[](int);
 };
 std::ostream &operator<<(std::ostream &, const Constraints &);
@@ -56,5 +56,15 @@ typedef struct Mesh
 } Mesh;
 
 std::ostream &operator<<(std::ostream &, const Mesh &);
+
+typedef struct Load
+{
+    int dof;
+    double value;
+} Load;
+
+typedef std::vector<Load> Loads;
+
+std::ostream &operator<<(std::ostream &, const Loads &);
 
 #endif

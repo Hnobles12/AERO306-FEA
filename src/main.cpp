@@ -11,7 +11,9 @@ int main()
 
     Mesh mesh = read_mesh(lines);
     MaterialParams material_params = readProperties(lines);
+    Constraints constraints = readConstraints(lines);
 
-    cout << "E: " << material_params.E << endl;
+    cout << constraints << endl;
+
     return 0;
 }

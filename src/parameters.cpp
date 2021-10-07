@@ -46,26 +46,26 @@ std::ostream &operator<<(std::ostream &os, const Element &element)
 
 Constraints::Constraints(){
     this->num = 0;
-    this->vals = std::vector<double>();
+    this->dofs = std::vector<int>();
 }
 
-Constraints::Constraints(int num, std::vector<double> vals)
+Constraints::Constraints(int num, std::vector<int> vals)
 {
     this->num = num;
-    this->vals = vals;
+    this->dofs = dofs;
 }
 
 double Constraints::operator[](int i)
 {
-    return this->vals[i];
+    return this->dofs[i];
 }
 
 std::ostream &operator<<(std::ostream &os, const Constraints &constraints)
 {
     os << "Constraints:\n    Number: " << constraints.num << "\n    Values: ";
-    for (int i = 0; i < constraints.vals.size(); i++)
+    for (int i = 0; i < constraints.dofs.size(); i++)
     {
-        os << constraints.vals[i] << " ";
+        os << constraints.dofs[i] << " ";
     }
     os << std::endl;
     return os;
@@ -98,4 +98,8 @@ std::ostream& operator<<(std::ostream& os, const Mesh& mesh)
 {
     os << "Mesh:\n    Nodes: " << mesh.nodes.size() << "\n    Elements: " << mesh.elements.size() << std::endl;
     return os;
+}
+
+std::ostream& operator<<(std::ostream& os, const Loads& loads){
+
 }

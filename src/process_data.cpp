@@ -24,7 +24,6 @@ std::vector<std::string> get_lines(std::string file_name)
     std::vector<std::string> lines;
     if (file.is_open())
     {
-        std::cout << "File is open" << std::endl;
         while (getline(file, line))
         {
             lines.push_back(line);
@@ -70,7 +69,6 @@ Mesh read_mesh(std::vector<std::string> lines)
     i++;
     while (lines[i].length() != 0 and i < lines.size())
     {
-        std::cout << "Here " << i << std::endl;
         std::vector<std::string> element_str = split(lines[i], ' ');
         int id = std::stoi(element_str[0]);
         std::vector<int> nodes_id;
@@ -109,3 +107,32 @@ MaterialParams readProperties(std::vector<std::string> lines)
 
     return material_params;
 }
+
+Constraints readConstraints(std::vector<std::string> lines)
+{
+    Constraints constraints;
+    int i = 0;
+    int empty_lines = 0;
+    while (empty_lines != 3)
+    {
+        if (lines[i].length() == 0)
+        {
+            empty_lines++;
+        }
+        i++;
+    }
+
+    constraints.num = std::stoi(lines[i]);
+    i++;
+
+    std::vector<int> dofs;
+    std::vector<std::string> constraint_str = split(lines[i], ' ');
+
+    for (int j = 0; j < constraints.num; j++)
+    {
+        dofs.push_back(std::stoi(constraint_str[j]));
+    }
+    constraints.dofs = dofs;
+    return constraints;
+}
+
