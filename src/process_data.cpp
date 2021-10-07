@@ -45,7 +45,7 @@ Mesh read_mesh(std::vector<std::string> lines)
     int num_elements = 0;
 
     //Read all the nodes and number of nodes/elements
-    while (lines[i].length() != 0)
+    while (lines[i].length() != 0 && i < lines.size())
     {
         if (i == 0)
         {

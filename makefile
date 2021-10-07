@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -std=c++11
-OUTFNAME = main.out
+OUTFNAME = FEA.out
 
 
 all:
