@@ -26,12 +26,16 @@ Element::Element()
 {
     this->id = 0;
     this->connectivity = std::vector<int>();
+    this->K = MatrixXd::Zero(4,4);
+    this->dof = MatrixXd::Zero(4,1);
 }
 
 Element::Element(int id, std::vector<int> connect)
 {
     this->id = id;
     this->connectivity = connect;
+    this->K = MatrixXd::Zero(4,4);
+    this->dof = MatrixXd::Zero(4,1);
 }
 
 std::ostream &operator<<(std::ostream &os, const Element &element)
@@ -42,6 +46,8 @@ std::ostream &operator<<(std::ostream &os, const Element &element)
         os << element.connectivity[i] << " ";
     }
     os << std::endl;
+    os << "        K: \n" << element.K << std::endl;
+    os << "        dof: \n" << element.dof << std::endl;
     return os;
 }
 // Constraint Class:
@@ -109,7 +115,8 @@ std::ostream &operator<<(std::ostream &os, const Mesh &mesh)
     os << "    }\n";
     os << "    Elements: " << mesh.elements.size() << std::endl;
     os << "    {\n";
-    for (int i = 0; i<mesh.elements.size(); i++){
+    for (int i = 0; i < mesh.elements.size(); i++)
+    {
         os << mesh.elements[i];
     }
 
@@ -118,7 +125,8 @@ std::ostream &operator<<(std::ostream &os, const Mesh &mesh)
     return os;
 }
 
-std::ostream &operator<<(std::ostream &os, const Load &load){
+std::ostream &operator<<(std::ostream &os, const Load &load)
+{
     os << "\n    Load:\n        DOF: " << load.dof << "\n        Value: " << load.value << std::endl;
     return os;
 }

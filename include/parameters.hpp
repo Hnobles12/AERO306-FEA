@@ -4,6 +4,13 @@
 #include <vector>
 #include <iostream>
 
+#include "../Eigen/Core"
+
+using namespace Eigen;
+
+typedef Matrix<double, 4, 4> Matrix4d;
+typedef Matrix<double, 4, 1> Vector4d;
+
 class Node
 {
 public:
@@ -21,6 +28,13 @@ class Element
 public:
     int id;
     std::vector<int> connectivity;
+
+    MatrixXd K;
+    MatrixXd dof;
+
+    Node n1;
+    Node n2;
+
     Element();
     Element(int, std::vector<int>);
 };

@@ -4,7 +4,7 @@ OUTFNAME = FEA.out
 
 
 all:
-	$(CXX) -o ./bin/$(OUTFNAME) ./src/*.cpp  $(CXXFLAGS)
+	$(CXX) -o ./bin/$(OUTFNAME) ./src/*.cpp ./main/main.cpp  $(CXXFLAGS)
 	
 run: all
 	./bin/$(OUTFNAME)
