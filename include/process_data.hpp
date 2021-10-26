@@ -5,6 +5,7 @@
 #include <string>
 #include <fstream>
 #include "parameters.hpp"
+#include "mesh.hpp"
 
 std::vector<std::string> split(const std::string &s, char delimiter);
 

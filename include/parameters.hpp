@@ -44,13 +44,13 @@ public:
 };
 std::ostream &operator<<(std::ostream &, const MaterialParams &);
 
-typedef struct Mesh
-{
-    std::vector<Node> nodes;
-    std::vector<Element> elements;
-} Mesh;
+// typedef struct Mesh
+// {
+//     std::vector<Node> nodes;
+//     std::vector<Element> elements;
+// } Mesh;
 
-std::ostream &operator<<(std::ostream &, const Mesh &);
+// std::ostream &operator<<(std::ostream &, const Mesh &);
 
 typedef struct Load
 {
@@ -64,30 +64,30 @@ typedef std::vector<Load> Loads;
 
 std::ostream &operator<<(std::ostream &, const Loads &);
 
-/// Element Class
+// /// Element Class
 
-class Element
-{
-public:
-    int id;
-    std::vector<int> connectivity;
+// class Element
+// {
+// public:
+//     int id;
+//     std::vector<int> connectivity;
 
-    MatrixXd K;
-    MatrixXd dof;
+//     MatrixXd K;
+//     MatrixXd dof;
 
-    Node n1;
-    Node n2;
+//     Node n1;
+//     Node n2;
 
-    Element();
-    Element(int, std::vector<int>);
+//     Element();
+//     Element(int, std::vector<int>);
 
-    void getElementDof(double, double);
-    void getElementK(double, double);
+//     void getElementDof(double, double);
+//     void getElementK(double, double);
 
-    MatrixXd getElmentK();
-    MatrixXd getElementDof();
-};
+//     MatrixXd getElmentK();
+//     MatrixXd getElementDof();
+// };
 
-std::ostream &operator<<(std::ostream &, const Element &);
+// std::ostream &operator<<(std::ostream &, const Element &);
 
 #endif

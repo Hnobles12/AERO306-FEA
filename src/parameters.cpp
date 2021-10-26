@@ -1,4 +1,4 @@
-#include "../include/parameters.hpp"
+#include "parameters.hpp"
 
 Node::Node()
 {
@@ -18,38 +18,6 @@ std::ostream &operator<<(std::ostream &os, const Node &node)
     return os;
 }
 
-/*
-Element Class:
-*/
-
-Element::Element()
-{
-    this->id = 0;
-    this->connectivity = std::vector<int>();
-    this->K = MatrixXd::Zero(4,4);
-    this->dof = MatrixXd::Zero(4,1);
-}
-
-Element::Element(int id, std::vector<int> connect)
-{
-    this->id = id;
-    this->connectivity = connect;
-    this->K = MatrixXd::Zero(4,4);
-    this->dof = MatrixXd::Zero(4,1);
-}
-
-std::ostream &operator<<(std::ostream &os, const Element &element)
-{
-    os << "    Element:\n        ID: " << element.id << "\n        Connectivity: ";
-    for (int i = 0; i < element.connectivity.size(); i++)
-    {
-        os << element.connectivity[i] << " ";
-    }
-    os << std::endl;
-    os << "        K: \n" << element.K << std::endl;
-    os << "        dof: \n" << element.dof << std::endl;
-    return os;
-}
 // Constraint Class:
 
 Constraints::Constraints()
@@ -102,28 +70,28 @@ std::ostream &operator<<(std::ostream &os, const MaterialParams &material)
     return os;
 }
 
-// Mesh Struct:
+// // Mesh Struct:
 
-std::ostream &operator<<(std::ostream &os, const Mesh &mesh)
-{
-    os << "Mesh:\n    Nodes: " << mesh.nodes.size() << std::endl;
-    os << "    {\n";
-    for (int i = 0; i < mesh.nodes.size(); i++)
-    {
-        os << mesh.nodes[i];
-    }
-    os << "    }\n";
-    os << "    Elements: " << mesh.elements.size() << std::endl;
-    os << "    {\n";
-    for (int i = 0; i < mesh.elements.size(); i++)
-    {
-        os << mesh.elements[i];
-    }
+// std::ostream &operator<<(std::ostream &os, const Mesh &mesh)
+// {
+//     os << "Mesh:\n    Nodes: " << mesh.nodes.size() << std::endl;
+//     os << "    {\n";
+//     for (int i = 0; i < mesh.nodes.size(); i++)
+//     {
+//         os << mesh.nodes[i];
+//     }
+//     os << "    }\n";
+//     os << "    Elements: " << mesh.elements.size() << std::endl;
+//     os << "    {\n";
+//     for (int i = 0; i < mesh.elements.size(); i++)
+//     {
+//         os << mesh.elements[i];
+//     }
 
-    os << "    }\n";
+//     os << "    }\n";
 
-    return os;
-}
+//     return os;
+// }
 
 std::ostream &operator<<(std::ostream &os, const Load &load)
 {
