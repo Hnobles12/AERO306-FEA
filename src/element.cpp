@@ -34,7 +34,7 @@ std::ostream &operator<<(std::ostream &os, const Element &element)
     return os;
 }
 
-// Build the dof vector for the element
+// Build the dof vector for the element; Returns indicies of dof in matrix.
 MatrixXd Element::getElementDof()
 {
     this->dof = MatrixXd::Zero(4, 1);
@@ -44,5 +44,5 @@ MatrixXd Element::getElementDof()
 
 MatrixXd Element::getElementK()
 {
-    
+
 }
