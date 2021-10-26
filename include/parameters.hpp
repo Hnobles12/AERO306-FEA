@@ -21,25 +21,6 @@ public:
 };
 std::ostream &operator<<(std::ostream &, const Node &);
 
-/// Element Class
-
-class Element
-{
-public:
-    int id;
-    std::vector<int> connectivity;
-
-    MatrixXd K;
-    MatrixXd dof;
-
-    Node n1;
-    Node n2;
-
-    Element();
-    Element(int, std::vector<int>);
-};
-std::ostream &operator<<(std::ostream &, const Element &);
-
 class Constraints
 {
 public:
@@ -82,5 +63,31 @@ std::ostream &operator<<(std::ostream &, const Load &);
 typedef std::vector<Load> Loads;
 
 std::ostream &operator<<(std::ostream &, const Loads &);
+
+/// Element Class
+
+class Element
+{
+public:
+    int id;
+    std::vector<int> connectivity;
+
+    MatrixXd K;
+    MatrixXd dof;
+
+    Node n1;
+    Node n2;
+
+    Element();
+    Element(int, std::vector<int>);
+
+    void getElementDof(double, double);
+    void getElementK(double, double);
+
+    MatrixXd getElmentK();
+    MatrixXd getElementDof();
+};
+
+std::ostream &operator<<(std::ostream &, const Element &);
 
 #endif
