@@ -6,14 +6,15 @@ DEFINPFILE  = ./data/input.txt
 DEFOUTFILE = ./data/output.txt
 
 
-all:
+all: clean
+	mkdir bin
 	$(CXX) -I$(INCLUDEPATH) -o ./bin/$(OUTFNAME) ./src/*.cpp ./main/main.cpp  $(CXXFLAGS)
 	
 run: all
 	./bin/$(OUTFNAME) $(DEFINPFILE) $(DEFOUTFILE) 1
 
 clean:
-	rm -f ./bin/*
+	rm -rf ./bin
 	rm -rf ./dist
 
 run_test:
