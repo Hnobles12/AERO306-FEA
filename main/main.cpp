@@ -91,6 +91,12 @@ int main(int argc, char **argv)
 
     // Impose kinematic constraints:
 
+    MatrixXd K = imposeConstraints(K0, constraints);
+
+    // Solve for displacements:
+
+    MatrixXd U = K.inverse() * F0;
+
     /// Outputting Data to File:
 
     ofstream output_fstream(output_file);
@@ -109,7 +115,11 @@ int main(int argc, char **argv)
     output_fstream << "Global Stiffness Matrix (no imposed constraints)\nK0 = " << endl
                    << K0 << endl;
 
-    output_fstream << "Global Load Vector (no imposed constraints)\nF0 = " << endl << F0 << endl;
+    output_fstream << "Global Load Vector (no imposed constraints)\nF0 = " << endl
+                   << F0 << endl;
+
+    output_fstream << "Global Stiffness Matrix (after imposition of constraints)\nK = " << K << endl;
+    output_fstream << "Displacements\nU = \n" << U << endl;
 
     output_fstream.close();
 
@@ -125,7 +135,10 @@ int main(int argc, char **argv)
         cout << "Global Stiffness Matrix (no imposed constraints)\nK0 = " << endl
              << K0 << endl;
         cout << endl;
-        cout << "Global Load Vector (no imposed constraints)\nF0 = " << endl << F0 << endl;
+        cout << "Global Load Vector (no imposed constraints)\nF0 = " << endl
+             << F0 << endl;
+        cout << "Global Stiffness Matrix (after imposition of constraints)\nK = " << K << endl;
+        cout << "Displacements\nU = \n" << U << endl;
     }
 
     return 0;

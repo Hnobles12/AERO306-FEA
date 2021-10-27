@@ -9,4 +9,6 @@ MatrixXd assembleGlobalStiffnessMatrix(Mesh);
 
 MatrixXd assembleGlobalLoadVector(Mesh, Loads);
 
+MatrixXd imposeConstraints(MatrixXd, Constraints);
+
 #endif
