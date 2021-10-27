@@ -110,3 +110,15 @@ std::ostream &operator<<(std::ostream &os, const Loads &loads)
     os << "\n    }" << std::endl;
     return os;
 }
+
+Node findNode(std::vector<Node> nodes, int id)
+{
+    for (int i = 0; i < nodes.size(); i++)
+    {
+        if (nodes[i].id == id)
+        {
+            return nodes[i];
+        }
+    }
+    return Node();
+}

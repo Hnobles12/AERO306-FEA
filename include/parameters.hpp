@@ -90,4 +90,8 @@ std::ostream &operator<<(std::ostream &, const Loads &);
 
 // std::ostream &operator<<(std::ostream &, const Element &);
 
+// Helper functions:
+
+Node findNode(std::vector<Node>, int);
+
 #endif

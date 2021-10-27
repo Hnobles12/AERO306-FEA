@@ -73,6 +73,13 @@ int main(int argc, char **argv)
     Constraints constraints = readConstraints(lines);
     Loads loads = readLoads(lines);
 
+    // Get element K and dof matricies:
+
+    // Assemble global K and dof matricies:
+
+    // Add in point loads:
+
+    // Impose kinematic constraints:
 
     /// Outputting Data to File:
 
@@ -90,7 +97,6 @@ int main(int argc, char **argv)
     output_fstream << loads << endl;
 
     output_fstream.close();
-
 
     // Outputting Data to stdout:
 

@@ -1,4 +1,5 @@
 #include "process_data.hpp"
+// #include "parameters.hpp"
 
 std::vector<std::string> split(const std::string &s, char delim)
 {
@@ -71,11 +72,8 @@ Mesh read_mesh(std::vector<std::string> lines)
     {
         std::vector<std::string> element_str = split(lines[i], ' ');
         int id = std::stoi(element_str[0]);
-        std::vector<int> nodes_id;
-        nodes_id.push_back(std::stoi(element_str[1]));
-        nodes_id.push_back(std::stoi(element_str[2]));
-
-        Element element(id, nodes_id);
+        int nodes_id[2] = {std::stoi(element_str[1]), std::stoi(element_str[2])};
+        Element element(id, findNode(nodes, nodes_id[0]), findNode(nodes, nodes_id[1]));
         elements.push_back(element);
         i++;
     }

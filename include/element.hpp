@@ -18,11 +18,10 @@ public:
     Node n2;
 
     Element();
-    Element(int, std::vector<int>);
+    Element(int, Node, Node);
 
     MatrixXd getElementDof();
     MatrixXd getElementK();
-
 };
 
 std::ostream &operator<<(std::ostream &, const Element &);
