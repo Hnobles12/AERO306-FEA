@@ -74,7 +74,11 @@ int main(int argc, char **argv)
     Loads loads = readLoads(lines);
 
     // Get element K and dof matricies:
-
+    for (int i = 0; i < mesh.elements.size(); i++)
+    {
+        mesh.elements[i].getElementDof();
+        mesh.elements[i].getElementK(material_params);
+    }
     // Assemble global K and dof matricies:
 
     // Add in point loads:

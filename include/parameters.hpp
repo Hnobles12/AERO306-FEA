@@ -39,6 +39,7 @@ public:
     double E;
     double height;
     double width;
+    double I;
     MaterialParams();
     MaterialParams(double, double, double);
 };

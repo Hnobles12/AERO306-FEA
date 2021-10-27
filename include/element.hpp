@@ -10,6 +10,7 @@ class Element
 public:
     int id;
     std::vector<int> connectivity;
+    double length;
 
     MatrixXd K;
     MatrixXd dof;
@@ -21,7 +22,7 @@ public:
     Element(int, Node, Node);
 
     MatrixXd getElementDof();
-    MatrixXd getElementK();
+    MatrixXd getElementK(MaterialParams);
 };
 
 std::ostream &operator<<(std::ostream &, const Element &);

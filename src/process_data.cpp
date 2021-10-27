@@ -102,6 +102,7 @@ MaterialParams readProperties(std::vector<std::string> lines)
     material_params.E = std::stod(properties_str[0]);
     material_params.height = std::stod(properties_str[1]);
     material_params.width = std::stod(properties_str[2]);
+    material_params.I = material_params.width * pow(material_params.height, 3) / 12;
 
     return material_params;
 }

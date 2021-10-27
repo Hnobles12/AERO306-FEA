@@ -55,6 +55,7 @@ MaterialParams::MaterialParams()
     this->E = 0;
     this->height = 0;
     this->width = 0;
+    this->I = 0;
 }
 
 MaterialParams::MaterialParams(double E, double height, double witdth)
@@ -62,11 +63,12 @@ MaterialParams::MaterialParams(double E, double height, double witdth)
     this->E = E;
     this->height = height;
     this->width = witdth;
+    this->I = pow(height, 3) * width / 12;
 }
 
 std::ostream &operator<<(std::ostream &os, const MaterialParams &material)
 {
-    os << "Material Parameters:\n    E: " << material.E << "\n    Height: " << material.height << "\n    Width: " << material.width << std::endl;
+    os << "Material Parameters:\n    E: " << material.E << "\n    Height: " << material.height << "\n    Width: " << material.width << "\n    I: " << material.I << std::endl;
     return os;
 }
 
