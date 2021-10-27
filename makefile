@@ -12,7 +12,12 @@ run: all
 
 clean:
 	rm -f ./bin/*
+	rm -rf ./dist
 
 run_test:
 	$(CXX) -I$(INCLUDEPATH) -o ./bin/test ./src/*.cpp ./test/test.cpp $(CXXFLAGS)
 	./bin/test
+
+compress: clean 
+	mkdir dist
+	zip -r ./dist/AERO306_Nobles_FEA.zip .
