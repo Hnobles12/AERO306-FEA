@@ -2,13 +2,15 @@ CXX = g++
 CXXFLAGS = -std=c++11 -g
 OUTFNAME = FEA.out
 INCLUDEPATH = ./include/
+DEFINPFILE  = ./data/input.txt
+DEFOUTFILE = ./data/output.txt
 
 
 all:
 	$(CXX) -I$(INCLUDEPATH) -o ./bin/$(OUTFNAME) ./src/*.cpp ./main/main.cpp  $(CXXFLAGS)
 	
 run: all
-	./bin/$(OUTFNAME) ./data/data.txt ./data/output.txt 1
+	./bin/$(OUTFNAME) $(DEFINPFILE) $(DEFOUTFILE) 1
 
 clean:
 	rm -f ./bin/*
