@@ -115,11 +115,19 @@ int main(int argc, char **argv)
     output_fstream << "Global Stiffness Matrix (no imposed constraints)\nK0 = " << endl
                    << K0 << endl;
 
+    output_fstream << endl;
+
     output_fstream << "Global Load Vector (no imposed constraints)\nF0 = " << endl
                    << F0 << endl;
 
+    output_fstream << endl;
+
     output_fstream << "Global Stiffness Matrix (after imposition of constraints)\nK = " << K << endl;
-    output_fstream << "Displacements\nU = \n" << U << endl;
+
+    output_fstream << endl;
+
+    output_fstream << "Displacements\nU = \n"
+                   << U << endl;
 
     output_fstream.close();
 
@@ -137,7 +145,9 @@ int main(int argc, char **argv)
         cout << endl;
         cout << "Global Load Vector (no imposed constraints)\nF0 = " << endl
              << F0 << endl;
+        cout << endl;
         cout << "Global Stiffness Matrix (after imposition of constraints)\nK = " << K << endl;
+        cout << endl;
         cout << "Displacements\nU = \n" << U << endl;
     }
 
