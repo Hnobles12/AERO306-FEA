@@ -1,0 +1,11 @@
+# Questions in Part 2b:
+
+- **Why did you choose the language you used:** I chose C++ beacause I wanted to challenge myself to produce clean solid code in a language that is used extensively in the aerospace industry. I enjoy using projects to learn new languages and I felt this was a great way to further my knowledge.
+
+- **What did you learn new about programming as a result of this assignment:** I learned, even more so, how important it is to plan out how you structure your code and logic. I found that using certain data structures did not work well with certain types of logic, which neccessitates the use of other practices to deal with certain limitations. I also learned how to use a new (to me) library called Eigen, which includes functions and classes for linear algebra and matrix manipulation. Also, I learned more about how to work with certain compilation schemes as well as makefile rules and syntax.
+
+- **Did programming the FEA code help you understand FEA any better:** I believe that it helped my understanding greatly, as I was forced to know how to accomplish the method theoretically in order to plan how to impliment it effectively in code.
+
+- **Approximately how many hours did you spend on the first and second parts:** The first part took me approximately 4.5 hours and the second took roughly 3 hours. Those times represent actual planning and development time, I encountered a problem with my git commands and took some extra time to rectify that error, which is not included.
+
+- **Would you have liked to do more code development in this class:** Absolutely! I believe that it is incredibly important to understand how to teach a computer to do the methods that we are learning by hand. I think that even if we do not do it in class, I will likely expand this code to cover the truss and fame element cases. Having experience writing clean code with a tangible purpose is an incredibly important thing to have. I have learned that more and more when looking at hiring processes and requirements which are imposed by companies in the aerospace realm.
