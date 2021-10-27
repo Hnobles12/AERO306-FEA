@@ -30,6 +30,16 @@ $ g++ -I./include -o ./bin/FEA.out ./src/*.cpp
 
 ## Using the Program
 
+### **Preferred Method:**
+
+To quickly build and run the program using the default (given) input file, I have incuded a special make command which cleans the working tree, builds, and executes the binary with the arguments above. The command is as follows:
+
+```bash
+$ make run
+```
+
+### **Manual Method:**
+
 The program is intended to be run from the command line, as it requires command line arguments to run properly. The input and output filenames are able to be passed to the program when running it. The format of these arguments is as follows:
 
 ```bash
@@ -42,8 +52,5 @@ For example, to read from a file `input.txt` and output the processed data to `o
 $ ./bin/FEA.out ./data/input.txt  ./data/output.txt  1
 ```
 
-To quickly run the program using the default (given) input file, I have incuded a special make command which cleans the working tree, builds, and executes the binary with the arguments above. The command is as follows:
 
-```bash
-$ make run
-```
+
