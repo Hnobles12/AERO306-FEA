@@ -150,7 +150,7 @@ Loads readLoads(std::vector<std::string> lines)
         i++;
     }
     int num_loads = std::stoi(lines[i]);
-    for (int i = 0; i < num_loads; i++)
+    for (int j = 0; j < num_loads; j++)
     {
         Load load;
         std::vector<std::string> load_str = split(lines[i + 1], ' ');
@@ -159,6 +159,7 @@ Loads readLoads(std::vector<std::string> lines)
         load.dof = dof;
         load.value = value;
         loads.push_back(load);
+        i++;
     }
     return loads;
 }

@@ -73,13 +73,13 @@ Loads:
     {
  
     Load:
-        DOF: 1
-        Value: 10
+        DOF: 7
+        Value: 5
  
     }
 
 Global Stiffness Matrix (no imposed constraints)
-  K0 = 
+K0 = 
  24007.2        0        0        0 -12003.6    60018 -12003.6   -60018
        0   800240        0        0   -60018   200060    60018   200060
        0        0  12003.6   -60018 -12003.6   -60018        0        0
@@ -88,3 +88,13 @@ Global Stiffness Matrix (no imposed constraints)
    60018   200060   -60018   200060        0   800240        0        0
 -12003.6    60018        0        0        0        0  12003.6    60018
   -60018   200060        0        0        0        0    60018   400120
+Global Load Vector (no imposed constraints)
+F0 = 
+0
+0
+0
+0
+0
+0
+5
+0

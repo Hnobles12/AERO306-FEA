@@ -87,6 +87,8 @@ int main(int argc, char **argv)
 
     // Add in point loads:
 
+    MatrixXd F0 = assembleGlobalLoadVector(mesh, loads);
+
     // Impose kinematic constraints:
 
     /// Outputting Data to File:
@@ -104,7 +106,10 @@ int main(int argc, char **argv)
     output_fstream << constraints << endl;
     output_fstream << loads << endl;
 
-    output_fstream << "Global Stiffness Matrix (no imposed constraints)\n  K0 = " << endl << K0 << endl;
+    output_fstream << "Global Stiffness Matrix (no imposed constraints)\nK0 = " << endl
+                   << K0 << endl;
+
+    output_fstream << "Global Load Vector (no imposed constraints)\nF0 = " << endl << F0 << endl;
 
     output_fstream.close();
 
@@ -116,8 +121,11 @@ int main(int argc, char **argv)
         cout << material_params << endl;
         cout << constraints << endl;
         cout << loads << endl;
-        
-        cout << "Global Stiffness Matrix (no imposed constraints)\n  K0 = " << endl << K0 << endl;
+
+        cout << "Global Stiffness Matrix (no imposed constraints)\nK0 = " << endl
+             << K0 << endl;
+        cout << endl;
+        cout << "Global Load Vector (no imposed constraints)\nF0 = " << endl << F0 << endl;
     }
 
     return 0;

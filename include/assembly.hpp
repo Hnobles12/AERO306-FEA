@@ -7,4 +7,6 @@
 
 MatrixXd assembleGlobalStiffnessMatrix(Mesh);
 
+MatrixXd assembleGlobalLoadVector(Mesh, Loads);
+
 #endif

@@ -37,3 +37,17 @@ MatrixXd assembleGlobalStiffnessMatrix(Mesh mesh)
     }
     return K;
 }
+
+MatrixXd assembleGlobalLoadVector(Mesh mesh, Loads loads)
+{
+    int n = mesh.nodes.size()*2;
+    MatrixXd F = MatrixXd::Zero(n, 1);
+
+    for (int i = 0; i<loads.size(); i++)
+    {
+        Load l = loads[i];
+        int n1 = l.dof - 1;
+        F(n1, 0) += l.value;
+    }
+    return F;
+}
