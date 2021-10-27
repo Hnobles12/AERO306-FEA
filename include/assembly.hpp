@@ -1,8 +1,10 @@
 #ifndef ASSEMBLY_HPP
 #define ASSEMBLY_HPP
 
-#include "../Eigen/Core"
+#include "parameters.hpp"
+#include "element.hpp"
+#include "mesh.hpp"
 
-Eigen::MatrixXd assembleGlobalStiffnessMatrix();
+MatrixXd assembleGlobalStiffnessMatrix(Mesh);
 
 #endif

@@ -67,3 +67,4 @@ MatrixXd Element::getElementK(MaterialParams mat_par)
 
         return this->K;
 }
+

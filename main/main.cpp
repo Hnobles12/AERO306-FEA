@@ -1,5 +1,6 @@
-#include "../include/parameters.hpp"
-#include "../include/process_data.hpp"
+#include "parameters.hpp"
+#include "process_data.hpp"
+#include "assembly.hpp"
 
 #include <iostream>
 #include <vector>
@@ -79,7 +80,10 @@ int main(int argc, char **argv)
         mesh.elements[i].getElementDof();
         mesh.elements[i].getElementK(material_params);
     }
-    // Assemble global K and dof matricies:
+
+    // Assemble global K and F matricies:
+
+    MatrixXd K0 = assembleGlobalStiffnessMatrix(mesh);
 
     // Add in point loads:
 
@@ -100,6 +104,8 @@ int main(int argc, char **argv)
     output_fstream << constraints << endl;
     output_fstream << loads << endl;
 
+    output_fstream << "Global Stiffness Matrix (no imposed constraints)\n  K0 = " << endl << K0 << endl;
+
     output_fstream.close();
 
     // Outputting Data to stdout:
@@ -110,6 +116,8 @@ int main(int argc, char **argv)
         cout << material_params << endl;
         cout << constraints << endl;
         cout << loads << endl;
+        
+        cout << "Global Stiffness Matrix (no imposed constraints)\n  K0 = " << endl << K0 << endl;
     }
 
     return 0;

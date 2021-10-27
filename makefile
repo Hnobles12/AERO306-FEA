@@ -8,7 +8,7 @@ all:
 	$(CXX) -I$(INCLUDEPATH) -o ./bin/$(OUTFNAME) ./src/*.cpp ./main/main.cpp  $(CXXFLAGS)
 	
 run: all
-	./bin/$(OUTFNAME)
+	./bin/$(OUTFNAME) ./data/data.txt ./data/output.txt 1
 
 clean:
 	rm -f ./bin/*
